@@ -2,6 +2,8 @@
 Author: Eduardo Vaca
 """
 from random import randint
+from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
 
 NUMBER_OF_ECUATIONS = 3
 VARIABLE_NAMES = ['x', 'y', 'z']
@@ -50,11 +52,13 @@ def evaluate(system_of_equations, values):
 	return result
 
 
-def generate_points_in_graph(system_of_equations):
-	"""Generates psceudo-random values and use them as values
-	for the system of equations.
+def generate_points(system_of_equations):
+	"""Generates psceudo-random values and evaluates them in the
+	sytem of equations.
 	Params:
 		- system_of_equations: List of lists representing the system.
+	Returns:
+		- List of list representing the points from values already evaluated.
 	"""
 	print('How many points would you wish to graph?', end=' ')
 	n_points = int(input())
@@ -63,18 +67,24 @@ def generate_points_in_graph(system_of_equations):
 	print('Maximun value for a variable:', end=' ')
 	max_limit = int(input())
 
+	points = [[] for _ in range(NUMBER_OF_ECUATIONS)]
+
 	for _ in range(n_points):
 		current_values = [randint(min_limit, max_limit) 
 							for _ in range(NUMBER_OF_ECUATIONS)]
-		print('CURRENT VALUES: {}'.format(current_values))
-		print('RESULT: {}'.format(evaluate(system_of_equations, current_values)))
+		result = evaluate(system_of_equations, current_values)
+		
+		for i in range(NUMBER_OF_ECUATIONS):
+			points[i].append(result[i])
 
+	return points
+		
 
 
 def main():
 	equations = build_system_of_equations()
 	print_system_of_equations(equations)
-	generate_points_in_graph(equations)
+	print(generate_points(equations))
 
 if __name__ == '__main__':
 	main()
