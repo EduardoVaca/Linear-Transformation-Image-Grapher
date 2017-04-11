@@ -3,28 +3,28 @@ Author: Eduardo Vaca
 """
 
 
-def build_ecuations_system():
-	"""Buids the ecuations system by user input.
+def build_system_of_equations():
+	"""Buids the equations system by user input.
 	The system is represented by a list of lists
-	This is only for 3 * 3 matrix (ecuations/variables)
+	This is only for 3 * 3 matrix (equations/variables)
 	"""
-	ecuations = variables = 3
+	equations = variables = 3
 	variable_names = ['x', 'y', 'z']
-	ecuations_system = [[] for _ in range(ecuations)]	
+	system_of_equations = [[] for _ in range(equations)]	
 
-	for i in range(ecuations):
-		print('Ecuation {}:'.format(i + 1))
+	for i in range(equations):
+		print('Equation {}:'.format(i + 1))
 		for j in range(variables):
 			print('Value for variable {}{}: '.format(variable_names[j], i + 1), end='')
-			ecuations_system[i].append(int(input()))
+			system_of_equations[i].append(int(input()))
 
-	return ecuations_system
+	return system_of_equations
 
 
 
 def main():
-	ecuations = build_ecuations_system()
-	print(ecuations)
+	equations = build_system_of_equations()
+	print(equations)
 
 if __name__ == '__main__':
 	main()
