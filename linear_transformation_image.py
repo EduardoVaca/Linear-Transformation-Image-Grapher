@@ -80,11 +80,30 @@ def generate_points(system_of_equations):
 	return points
 		
 
+def graph_points(points):
+	"""
+	Graph the points in a 3d Scatter plot.
+	Params:
+		- points: List of list representing values for each variable.
+	"""
+	fig = plt.figure()
+	ax = fig.add_subplot(111, projection='3d')
+
+	ax.scatter(points[0], points[1], points[2], c='r', marker='o')
+
+	ax.set_xlabel('X Label')
+	ax.set_ylabel('Y Label')
+	ax.set_zlabel('Z Label')
+
+	plt.show()
+
 
 def main():
 	equations = build_system_of_equations()
 	print_system_of_equations(equations)
-	print(generate_points(equations))
+	points = generate_points(equations)
+	graph_points(points)
+	
 
 if __name__ == '__main__':
 	main()
