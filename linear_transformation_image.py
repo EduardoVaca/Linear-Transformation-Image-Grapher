@@ -1,5 +1,7 @@
 """
 Author: Eduardo Vaca
+Script that graph the image of any Linear Tranformation of 3*3
+Project for Linear Algebra Course
 """
 from random import randint
 from mpl_toolkits.mplot3d import Axes3D
@@ -7,6 +9,7 @@ import matplotlib.pyplot as plt
 
 NUMBER_OF_ECUATIONS = 3
 VARIABLE_NAMES = ['x', 'y', 'z']
+
 
 def build_system_of_equations():
 	"""Buids the equations system by user input.
@@ -103,7 +106,7 @@ def main():
 	print_system_of_equations(equations)
 	points = generate_points(equations)
 	graph_points(points)
-	
+
 
 if __name__ == '__main__':
 	main()
