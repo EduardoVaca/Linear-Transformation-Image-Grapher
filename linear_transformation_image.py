@@ -101,15 +101,30 @@ def graph_points(points):
 	plt.show()
 
 
-def graph_vectors():
+def graph_vectors(system_of_equations):
+
+	points = 100
+	
 	fig = plt.figure()
 	ax = fig.add_subplot(111, projection='3d')
 
-	X = [0.0, 0.2, 0.4, 0.6, 0.8, 1]
-	Y = [0, 0, 0, 0, 0, 0]
-	Z = [0, 0, 0, 0, 0, 0]
-	
-	ax.scatter(X, Y, Z, c='r', marker='o')
+	vector_x = [system_of_equations[x][0] for x in range(3)]
+	vector_y = [system_of_equations[x][1] for x in range(3)]
+	vector_z = [system_of_equations[x][2] for x in range(3)]
+	vectors = [vector_x, vector_y, vector_z]
+	color = 'r'
+
+	for vector in vectors:
+		X = [vector[0]/points*i for i in range(points + 1)]
+		Y = [vector[1]/points*i for i in range(points + 1)]
+		Z = [vector[2]/points*i for i in range(points + 1)]
+
+		ax.scatter(X, Y, Z, c=color, marker='o')
+
+		if color == 'r':
+			color = 'b'
+		elif color == 'b':
+			color = 'g'
 
 	ax.set_xlabel('X Label')
 	ax.set_ylabel('Y Label')
@@ -122,7 +137,8 @@ def main():
 	print_system_of_equations(equations)
 	points = generate_points(equations)
 	graph_points(points)"""
-	graph_vectors()
+	equations = build_system_of_equations()
+	graph_vectors(equations)
 
 
 if __name__ == '__main__':
