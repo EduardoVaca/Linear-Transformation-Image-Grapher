@@ -101,11 +101,28 @@ def graph_points(points):
 	plt.show()
 
 
+def graph_vectors():
+	fig = plt.figure()
+	ax = fig.add_subplot(111, projection='3d')
+
+	X = [0.0, 0.2, 0.4, 0.6, 0.8, 1]
+	Y = [0, 0, 0, 0, 0, 0]
+	Z = [0, 0, 0, 0, 0, 0]
+	
+	ax.scatter(X, Y, Z, c='r', marker='o')
+
+	ax.set_xlabel('X Label')
+	ax.set_ylabel('Y Label')
+	ax.set_zlabel('Z Label')
+	plt.show()
+
+
 def main():
-	equations = build_system_of_equations()
+	"""equations = build_system_of_equations()
 	print_system_of_equations(equations)
 	points = generate_points(equations)
-	graph_points(points)
+	graph_points(points)"""
+	graph_vectors()
 
 
 if __name__ == '__main__':
