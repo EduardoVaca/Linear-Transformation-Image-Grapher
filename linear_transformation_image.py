@@ -84,25 +84,28 @@ def generate_points(system_of_equations):
 		
 
 def graph_points(points):
-	"""
-	Graph the points in a 3d Scatter plot.
+	"""Graph the points in a 3d Scatter plot.
 	Params:
 		- points: List of list representing values for each variable.
 	"""
 	fig = plt.figure()
 	ax = fig.add_subplot(111, projection='3d')
 
-	ax.scatter(points[0], points[1], points[2], c='r', marker='o')
+	ax.scatter(points[0], points[1], points[2], c='c', marker='o')
 
 	ax.set_xlabel('X Label')
 	ax.set_ylabel('Y Label')
 	ax.set_zlabel('Z Label')
+	ax.set_title('Image of Linear Transformation')
 
-	plt.show()
+	#plt.show()
 
 
 def graph_vectors(system_of_equations):
-
+	"""Graph vectors of X, Y, Z from the system of equations.
+	Params:
+		- system_of_equations: List of lists representing the system.
+	"""
 	points = 100
 	
 	fig = plt.figure()
@@ -129,15 +132,16 @@ def graph_vectors(system_of_equations):
 	ax.set_xlabel('X Label')
 	ax.set_ylabel('Y Label')
 	ax.set_zlabel('Z Label')
+	ax.set_title('gen=({},{},{})'.format(vector_x, vector_y,vector_z))
+
 	plt.show()
 
 
 def main():
-	"""equations = build_system_of_equations()
+	equations = build_system_of_equations()
 	print_system_of_equations(equations)
 	points = generate_points(equations)
-	graph_points(points)"""
-	equations = build_system_of_equations()
+	graph_points(points)
 	graph_vectors(equations)
 
 
