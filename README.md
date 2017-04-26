@@ -1,5 +1,5 @@
 # Transformation-Image-Grapher
-Linear Algebra Project: Simple grapher for liner transformation's image in 3*3 matrix sizes.
+Linear Algebra Project: Simple grapher for linear transformation's image in 3*3 matrix sizes.
 
 <h3><b>Usage</h3></b>
 <ol>
@@ -7,5 +7,5 @@ Linear Algebra Project: Simple grapher for liner transformation's image in 3*3 m
 <li>Create virtual env</li>
 <li>Install the requirements</li>
 <li>Create file ~/.matplotlib/matplotlibrc</li>
-<li>Write in that file <b>backend: TkAgg</b></li>
+<li>Write in that file: <b>backend: TkAgg</b></li>
 </ol>
